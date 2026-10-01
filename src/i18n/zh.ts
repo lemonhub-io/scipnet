@@ -297,8 +297,8 @@ export const zh: typeof en = {
     install: '部署终端',
     offline: '链路中断——离线模式 // 仅限缓存记录',
     offlineReady: '终端已缓存——可离线访问',
-    newBuild: '收到终端新版本',
-    reload: '重新加载',
-    dismiss: '忽略',
+    newBuild: '检测到终端新版本——是否更新?',
+    reload: '立即更新',
+    dismiss: '稍后',
   },
 };

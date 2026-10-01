@@ -11,6 +11,13 @@ const safeUrl = (u) => {
   }
 };
 
+/* Update handshake — with workbox skipWaiting:false, the page prompts the user
+   and posts SKIP_WAITING when they agree. Safety net in case the generated SW
+   doesn't install its own listener. */
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
+});
+
 self.addEventListener('push', (event) => {
   event.waitUntil(
     (async () => {

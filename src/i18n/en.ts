@@ -294,8 +294,8 @@ export const en = {
     install: 'Deploy terminal',
     offline: 'Uplink severed — offline mode // cached records only',
     offlineReady: 'Terminal cached — offline access available',
-    newBuild: 'New terminal build received',
-    reload: 'Reload',
-    dismiss: 'Dismiss',
+    newBuild: 'New terminal build available — update?',
+    reload: 'Update now',
+    dismiss: 'Later',
   },
 };

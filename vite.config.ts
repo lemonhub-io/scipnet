@@ -8,7 +8,8 @@ export default defineConfig({
     react(),
     cloudflare(),
     VitePWA({
-      registerType: 'autoUpdate',
+      // 'prompt' = don't auto-activate new SWs; the page asks first (Pwa.tsx).
+      registerType: 'prompt',
       manifest: {
         id: '/',
         name: 'SCiPNET — Foundation Personnel Terminal',
@@ -56,7 +57,9 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/api\//, /^\/media\//],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
-        skipWaiting: true,
+        // Ask before applying new builds (see Pwa.tsx onNeedRefresh); the SW
+        // waits for an explicit SKIP_WAITING message instead of auto-activating.
+        skipWaiting: false,
         runtimeCaching: [
           {
             urlPattern: /\/api\/(threads|categories|users|replies)(\/|\?|$)/,

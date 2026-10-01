@@ -18,6 +18,11 @@ if (typeof window !== 'undefined') {
 
 export const canInstall = () => deferredPrompt !== null;
 
+/** True when running as an installed PWA (standalone window or iOS home-screen app). */
+export const isStandalone = () =>
+  window.matchMedia('(display-mode: standalone)').matches ||
+  (navigator as { standalone?: boolean }).standalone === true;
+
 export function subscribeInstall(fn: () => void) {
   installListeners.add(fn);
   return () => installListeners.delete(fn);
