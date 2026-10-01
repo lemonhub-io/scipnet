@@ -5,20 +5,24 @@ import { api } from '../api';
 import { useAuth } from '../auth';
 import { Avatar } from './Avatar';
 
-/** Foundation-style emblem — three inward bent arrows in a ring, three dots. */
+/** The SCP Foundation emblem (far2/Aelanna, CC BY-SA 3.0) — broken outer ring,
+    three notched arrows converging on an inner circle. */
 export function Emblem({ size = 22 }: { size?: number }) {
-  const arrow = 'M24 7 V16.5 M19.5 12 L24 16.5 L28.5 12';
+  const arrow = 'm64.7 30.6v24h-5.08l8.08 14 8.08-14h-5.08l-.000265-24h-5.99';
   return (
-    <svg viewBox="0 0 48 48" width={size} height={size} aria-hidden="true">
-      <circle cx="24" cy="24" r="19.5" fill="none" stroke="currentColor" strokeWidth="4" />
-      <g fill="none" stroke="currentColor" strokeWidth="3.6" strokeLinecap="square">
+    <svg viewBox="0 0 135 135" width={size} height={size} aria-hidden="true">
+      <circle cx="67.7" cy="71.5" r="33" fill="none" stroke="currentColor" strokeWidth="6" />
+      <path
+        d="m51.9 11.9h31.7l3.07 11.4.944.391c19.4 8.03 32 26.9 32 47.9 0 2.26-.149 4.53-.445 6.77l-.133 1.01 8.37 8.37-15.8 27.4-11.4-3.06-.809.623c-9.06 6.95-20.2 10.7-31.6 10.7-11.4 6e-5-22.5-3.77-31.6-10.7l-.81-.623-11.4 3.06-15.8-27.4 8.37-8.37-.133-1.01c-.296-2.25-.445-4.51-.445-6.77.000141-21 12.6-39.9 32-47.9l.944-.391z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="4"
+      />
+      <g fill="currentColor">
         <path d={arrow} />
-        <path transform="rotate(120 24 24)" d={arrow} />
-        <path transform="rotate(240 24 24)" d={arrow} />
+        <path transform="rotate(120 67.7 71.5)" d={arrow} />
+        <path transform="rotate(240 67.7 71.5)" d={arrow} />
       </g>
-      <circle cx="24" cy="37.6" r="2.7" fill="currentColor" />
-      <circle cx="12.4" cy="17.2" r="2.7" fill="currentColor" />
-      <circle cx="35.6" cy="17.2" r="2.7" fill="currentColor" />
     </svg>
   );
 }

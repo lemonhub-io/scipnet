@@ -80,7 +80,13 @@ export default function Docs() {
       <p style={{ margin: '32px 0 0' }}>
         <Trans
           i18nKey="docs.spec"
-          components={[<a href="/api/openapi.json"><code /></a>, code, <a href="/api/docs" target="_blank" rel="noreferrer"><code /></a>, code, code]}
+          components={[
+            <a href="/api/openapi.json"><code /></a>,
+            code,
+            <a href="/api/docs" target="_blank" rel="noreferrer"><code /></a>,
+            code,
+            <a href="https://github.com/lemonhub-io/scipnet/blob/main/API.md" target="_blank" rel="noreferrer"><code /></a>,
+          ]}
         />
       </p>
 

@@ -244,6 +244,7 @@ export const en = {
     apiRef: 'Network API',
     interactiveDocs: 'Interactive docs',
     openapi: 'OpenAPI 3.1 spec',
+    source: 'Source code (AGPL-3.0)',
     warning: 'Warning — The Foundation database is classified. Access by unauthorized personnel is strictly prohibited. Violators will be tracked, located, and detained.',
     motto: 'Secure. Contain. Protect.',
     legal: 'SCiPNET terminal — unofficial fan project. The SCP Foundation concept is a work of the SCP Wiki community, CC BY-SA 3.0. Built on Cloudflare Workers, D1, and R2.',

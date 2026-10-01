@@ -41,6 +41,9 @@ export function Footer() {
           <a href="/api/openapi.json" target="_blank" rel="noreferrer">
             {t('footer.openapi')}
           </a>
+          <a href="https://github.com/lemonhub-io/scipnet" target="_blank" rel="noreferrer">
+            {t('footer.source')}
+          </a>
         </div>
       </div>
       <div className="footer-warn">

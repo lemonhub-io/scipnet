@@ -247,6 +247,7 @@ export const zh: typeof en = {
     apiRef: '网络 API',
     interactiveDocs: '交互式文档',
     openapi: 'OpenAPI 3.1 规范',
+    source: '源代码 (AGPL-3.0)',
     warning: '警告——基金会数据库属机密文件。严禁未授权人员访问，违者将被追踪、定位并拘留。',
     motto: '控制。收容。保护。',
     legal: 'SCiPNET 终端——非官方同人项目。SCP 基金会概念版权归 SCP Wiki 社区所有，采用 CC BY-SA 3.0。基于 Cloudflare Workers、D1 与 R2 构建。',
