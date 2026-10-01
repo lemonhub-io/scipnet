@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { trackPageview } from './analytics';
 import { Footer } from './components/Footer';
 import { Nav } from './components/Nav';
 import { Pwa } from './components/Pwa';
@@ -14,15 +15,16 @@ import SignIn from './pages/SignIn';
 import Thread from './pages/Thread';
 
 export default function App() {
-  const { pathname, hash } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
+    trackPageview(pathname + search);
     if (hash) {
       document.querySelector(hash)?.scrollIntoView();
     } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [pathname, search, hash]);
 
   return (
     <div className="page">
