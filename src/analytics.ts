@@ -6,7 +6,7 @@ type Gtag = (command: 'config' | 'event' | 'js', ...args: unknown[]) => void;
 
 declare global {
   interface Window {
-    dataLayer?: IArguments[] | unknown[];
+    dataLayer?: unknown[];
     gtag?: Gtag;
   }
 }
