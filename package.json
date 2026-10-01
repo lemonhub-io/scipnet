@@ -1,0 +1,50 @@
+{
+  "name": "scipnet",
+  "private": true,
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "check": "tsc -b --pretty false",
+    "deploy": "npm run build && wrangler deploy",
+    "db:create": "wrangler d1 create agora-db",
+    "db:migrate": "wrangler d1 migrations apply agora-db",
+    "db:migrate:local": "wrangler d1 migrations apply agora-db --local",
+    "bucket:create": "wrangler r2 bucket create agora-cdn",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "@block65/webcrypto-web-push": "^2.0.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@hono/zod-openapi": "^1.6.3",
+    "@jsquash/webp": "^1.5.0",
+    "@simplewebauthn/browser": "^14.0.0",
+    "@simplewebauthn/server": "^14.0.3",
+    "hono": "^4.13.12",
+    "i18next": "^26.4.2",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-easy-crop": "^6.2.3",
+    "react-i18next": "^17.0.15",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.18.4",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.3",
+    "@cloudflare/workers-types": "^5.20260930.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.1",
+    "vite-plugin-pwa": "^1.3.0",
+    "wrangler": "^4.145.0"
+  }
+}

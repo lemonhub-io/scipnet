@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agora",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-30",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "forum.openhub.today", "custom_domain": true }
+  ],
+
+  // Static assets: Vite builds the React SPA into ./dist/client.
+  // /api/* and /media/* hit the Worker first; everything else serves assets (SPA fallback).
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/media/*"]
+  },
+
+  // D1 — relational store for users, sessions, categories, threads, replies, likes.
+  // database_id is filled in by `wrangler d1 create agora-db` / auto-provisioning on deploy.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "agora-db",
+      "database_id": "25e37a27-036c-48df-842d-0cb7157519f4",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // R2 — CDN object storage for avatars and uploaded attachments, served at /media/*.
+  "r2_buckets": [
+    {
+      "binding": "CDN",
+      "bucket_name": "agora-cdn"
+    }
+  ],
+
+  "observability": { "enabled": true },
+
+  // Web Push (VAPID). Private key is a secret: `wrangler secret put VAPID_PRIVATE_KEY`.
+  "vars": {
+    "VAPID_PUBLIC_KEY": "BJDmVlaNFFf3HEOdUytPEwr3vXs5FuMqQNP013-knHXMzsHMGATsOAD54Cjmt5xSjVsgCXZoXqMjqW0PaPrzHdQ",
+    "VAPID_SUBJECT": "mailto:admin@openhub.today"
+  }
+}
